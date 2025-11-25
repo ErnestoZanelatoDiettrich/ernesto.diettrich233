@@ -7,7 +7,7 @@
     }
 
 gameover {
-  img: url('gameovertela.jpg');
+  background-image: url('gameovertela.jpg');
   
 }
 
