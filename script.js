@@ -1,7 +1,9 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const gameover = document.getElementById("gameover");
+const pontuacaocontador = document.getElementById("pontuacaocontador");
 let pontuacao = 0;
+pontuacaocontador.innerText = pontuacao;
 const peixe1 = {
   x: 800,
   y: Math.random() * 460,
@@ -76,10 +78,9 @@ function update() {
     player.y + player.size > peixe1.y
   ) {
     pontuacao += 10;
-    
+    peixe1.clear();
   }
   draw();
-  requestAnimationFrame(update);
 }
 
 
@@ -91,6 +92,10 @@ function draw() {
   ctx.fillStyle = "red";
   ctx.fillRect(enemy.x, enemy.y, enemy.size, enemy.size);
 
+  ctx.fillStyle = "white";
+  ctx.fillRect(peixe1.x, peixe1.y, peixe1.size, peixe1.size);
+}
+function drawpeixe1() {
   ctx.fillStyle = "white";
   ctx.fillRect(peixe1.x, peixe1.y, peixe1.size, peixe1.size);
 }
