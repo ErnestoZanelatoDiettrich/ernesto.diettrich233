@@ -98,7 +98,6 @@ function update() {
     player.y + player.size > peixe1.y
   ) {
     pontuacao += 10;
-    peixe1.clear();
     drawpeixe1();
   }
   if (
