@@ -76,9 +76,7 @@ function update() {
 
   draw();
   requestAnimationFrame(update);
-}
-//pedra
-if (
+  if (
     player.x < pedra.x + pedra.size &&
     player.x + player.size > pedra.x &&
     player.y < pedra.y + enemy.size &&
@@ -89,23 +87,7 @@ if (
   }
   drawpedra();
 }
-// peixe1
-  if (
-    player.x < peixe1.x + peixe1.size &&
-    player.x + player.size > peixe1.x &&
-    player.y < peixe1.y + enemy.size &&
-    player.y + player.size > peixe1.y
-  ) {
-    pontuacao += 10;
-    peixe1.clear();
-  }
-  drawpeixe1();
-}
-window.addEventListener("load", () => {
-     gameover.style.display = "none";
-  });
 
-// Desenho
 function draw() {
   ctx.fillStyle = "lime";
   ctx.fillRect(player.x, player.y, player.size, player.size);
