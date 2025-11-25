@@ -1,11 +1,19 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const btnStart = document.getElementById("btnStart");
 const gameover = document.getElementById("gameover");
 const telamenu = document.getElementById("telamenu");
 const pontuacaocontador = document.getElementById("pontuacaocontador");
 let pontuacao = 0;
 telamenu.style.display = "none";
 pontuacaocontador.innerText = pontuacao;
+btnStart.addEventListener("click", comecarjogo);
+function comecarjogo() {
+  telamenu.style.display = "none";
+  gameover.style.display = "none";
+  btnStart.style.display = "none";
+  update()
+}
 const peixe1 = {
   x: 800,
   y: Math.random() * 460,
@@ -71,7 +79,9 @@ function update() {
     player.y + player.size > enemy.y
   ) {
     gameover.style.display = "flex";
-    document.location.reload();
+    setTimeout(() => {
+          document.location.reload();
+    } , 2000);
   }
   draw();
   requestAnimationFrame(update);
