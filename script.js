@@ -14,6 +14,12 @@ function comecarjogo() {
   btnStart.style.display = "none";
   update()
 }
+window.addEventListener("load", () => {
+    telamenu.style.display = "flex";
+    gameover.style.display = "none";
+    btnStart.style.display = "flex";
+});
+
 const peixe1 = {
   x: 800,
   y: Math.random() * 460,
@@ -127,5 +133,5 @@ function drawpeixe1() {
     ctx.fillStyle = "gray";
     ctx.fillRect(pedra.x, pedra.y, pedra.size, pedra.size);
 }
-update();
+
 
