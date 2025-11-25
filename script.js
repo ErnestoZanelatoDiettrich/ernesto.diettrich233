@@ -82,7 +82,9 @@ function update() {
   }
   draw();
 }
-
+window.addEventListener("load", () => {
+     gameover.style.display = "none";
+  });
 
 // Desenho
 function draw() {
