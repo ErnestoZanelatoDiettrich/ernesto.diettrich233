@@ -10,6 +10,12 @@ const peixe1 = {
   size: 20,
   speed: 2,
 };
+const pedra = {
+  x: 800,
+  y: Math.random() * 460,
+  size: 30,
+  speed: 0,
+}
 // Jogador
 const player = {
   x: 50,
@@ -70,6 +76,18 @@ function update() {
   draw();
   requestAnimationFrame(update);
 }
+//pedra
+if (
+    player.x < pedra.x + pedra.size &&
+    player.x + player.size > pedra.x &&
+    player.y < pedra.y + enemy.size &&
+    player.y + player.size > pedra.y
+  ) {
+    pontuacao -= 5;
+    pedra.clear();
+  }
+  drawpedra();
+}
 // peixe1
   if (
     player.x < peixe1.x + peixe1.size &&
@@ -80,7 +98,7 @@ function update() {
     pontuacao += 10;
     peixe1.clear();
   }
-  draw();
+  drawpeixe1();
 }
 window.addEventListener("load", () => {
      gameover.style.display = "none";
@@ -96,11 +114,17 @@ function draw() {
 
   ctx.fillStyle = "white";
   ctx.fillRect(peixe1.x, peixe1.y, peixe1.size, peixe1.size);
+
+  ctx.fillStyle = "gray";
+  ctx.fillRect(pedra.x, pedra.y, pedra.size, pedra.size);
 }
 function drawpeixe1() {
   ctx.fillStyle = "white";
   ctx.fillRect(peixe1.x, peixe1.y, peixe1.size, peixe1.size);
 }
-
+  function drawpedra() {
+    ctx.fillStyle = "gray";
+    ctx.fillRect(pedra.x, pedra.y, pedra.size, pedra.size);
+}
 update();
 
