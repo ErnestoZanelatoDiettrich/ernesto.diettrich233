@@ -1,6 +1,7 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const gameover = document.getElementById("gameover");
+const telamenu = document.getElementById("telamenu");
 const pontuacaocontador = document.getElementById("pontuacaocontador");
 let pontuacao = 0;
 pontuacaocontador.innerText = pontuacao;
