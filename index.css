@@ -6,22 +6,28 @@
       border: 3px solid #fff;
     }
 
-gameover {
-  background-image: url('gameovertela.jpg');
-  
+#gameover {
+  background: url('gameovertela.jpg');
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 300;    
 }
 
 
 varadepesca {
-
-   img: url('varadepesca.png');
+   background: url('varadepesca.png');
 
 
 }
 
 tubarao {
-
-   img: url('tubarao.webp');
+   background: url('tubarao.webp');
 
 
 }
