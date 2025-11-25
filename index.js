@@ -1,6 +1,6 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
-
+const gameover = document.getElementById("gameover");
 // Jogador
 const player = {
   x: 50,
@@ -28,7 +28,7 @@ const enemy = {
 // Loop do jogo
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  gameover.style.display = "none";
   // Movimentação jogador
   player.y += player.dy;
   if (player.y < 0) player.y = 0;
@@ -49,6 +49,7 @@ function update() {
     player.y + player.size > enemy.y
   ) {
     alert("Game Over!");
+    gameover.style.display = "display";
     document.location.reload();
   }
 
