@@ -1,6 +1,13 @@
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
 const gameover = document.getElementById("gameover");
+let pontuacao = 0;
+const peixe1 = {
+  x: 800,
+  y: Math.random() * 460,
+  size: 20,
+  speed: 2,
+};
 // Jogador
 const player = {
   x: 50,
@@ -40,7 +47,12 @@ function update() {
     enemy.x = 800;
     enemy.y = Math.random() * 460;
   }
-
+   // peixe1
+  peixe1.x -= peixe1.speed;
+  if (peixe1.x < -peixe1.size) {
+    peixe1.x = 600;
+    peixe1.y = Math.random() * 460;
+  }
   // Colisão
   if (
     player.x < enemy.x + enemy.size &&
@@ -56,6 +68,20 @@ function update() {
   draw();
   requestAnimationFrame(update);
 }
+// peixe1
+  if (
+    player.x < peixe1.x + peixe1.size &&
+    player.x + player.size > peixe1.x &&
+    player.y < peixe1.y + enemy.size &&
+    player.y + player.size > peixe1.y
+  ) {
+    pontuacao += 10;
+    
+  }
+  draw();
+  requestAnimationFrame(update);
+}
+
 
 // Desenho
 function draw() {
@@ -64,6 +90,9 @@ function draw() {
 
   ctx.fillStyle = "red";
   ctx.fillRect(enemy.x, enemy.y, enemy.size, enemy.size);
+
+  ctx.fillStyle = "white";
+  ctx.fillRect(peixe1.x, peixe1.y, peixe1.size, peixe1.size);
 }
 
 update();
