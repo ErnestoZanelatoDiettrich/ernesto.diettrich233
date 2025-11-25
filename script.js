@@ -4,6 +4,7 @@ const gameover = document.getElementById("gameover");
 const telamenu = document.getElementById("telamenu");
 const pontuacaocontador = document.getElementById("pontuacaocontador");
 let pontuacao = 0;
+telamenu.style.display = "none";
 pontuacaocontador.innerText = pontuacao;
 const peixe1 = {
   x: 800,
@@ -69,7 +70,7 @@ function update() {
     player.y < enemy.y + enemy.size &&
     player.y + player.size > enemy.y
   ) {
-    gameover.style.display = "display";
+    gameover.style.display = "flex";
     document.location.reload();
   }
   draw();
